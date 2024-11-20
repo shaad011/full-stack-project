@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reddit Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-2">
+      <div class="flex items-center justify-between">
+        <a href="/" class="text-2xl font-bold text-red-500">reddit clone</a>
+        
+        <div class="flex items-center space-x-4">
+          <% if (locals.user) { %>
+            <span class="text-gray-700">Welcome, <%= user.username %>!</span>
+            <a href="/submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">Submit Post</a>
+            <a href="/logout" class="text-gray-600 hover:text-gray-800">Logout</a>
+          <% } else { %>
+            <a href="/login" class="text-gray-600 hover:text-gray-800">Login</a>
+            <a href="/register" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">Sign Up</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <%- body %>
+  </main>
+</body>
+</html>
